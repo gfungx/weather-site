@@ -1,16 +1,23 @@
-const weatherForm = document.querySelector('.form');
-const search = document.querySelector('input');
-const messageOne = document.getElementById('message-1');
-const messageTwo = document.getElementById('message-2');
+const DOMStrings = {
 
-weatherForm.addEventListener('submit', (e) => {
+    weatherForm: document.querySelector('.form'),
+    search: document.querySelector('input'),
+    main: document.querySelector('.main-weather'),
+    title: document.getElementById('title'),
+    summary: document.getElementById('summary'),
+    currentlyTemp: document.getElementById('currently__temp'),
+    currentlyPrecip: document.getElementById('currently__precip')
+
+};
+
+DOMStrings.weatherForm.addEventListener('submit', (e) => {
 
     e.preventDefault();
 
-    const location = search.value;
+    const location = DOMStrings.search.value;
 
-    messageOne.textContent = 'Loading...';
-    messageTwo.textContent = '';
+    DOMStrings.title.textContent = 'Loading...';
+    DOMStrings.main.textContent = '';
 
     fetch(`/weather?address=${location}`).then((response) => {
 
@@ -18,12 +25,15 @@ weatherForm.addEventListener('submit', (e) => {
 
             if (data.error) {
 
-                messageOne.textContent = data.error;
+                DOMStrings.title.textContent = data.error;
 
             } else {
 
-                messageOne.textContent = data.location;
-                messageTwo.textContent = data.forecast;
+                DOMStrings.title.textContent = data.location;
+                DOMStrings.title.classList.toggle('location');
+                DOMStrings.summary.textContent = data.summary;
+                DOMStrings.currentlyTemp.textContent = `It is currently ${data.currentTemperature}°C`;
+                DOMStrings.currentlyPrecip.textContent = `There is a ${data.rainProb}% chance of rain`;
 
             };
 
