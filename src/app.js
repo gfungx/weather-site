@@ -31,28 +31,6 @@ app.get('', (req, res) => {
 
 });
 
-app.get('/about', (req, res) => {
-
-    res.render('about', {
-
-        title: 'About Me',
-        name: 'Geoffrey',
-
-    });
-
-});
-
-app.get('/help', (req, res) => {
-
-    res.render('help', {
-
-        title: 'Help',
-        message: 'Sorry, there is nothing to help you here.',
-        name: 'Geoffrey'
-
-    });
-
-});
 
 app.get('/weather', (req, res) => {
 
@@ -74,7 +52,7 @@ app.get('/weather', (req, res) => {
 
         };
 
-        forecast(latitude, longitude, (error, forecastData) => {
+        forecast(latitude, longitude, req.query.units, (error, forecastData) => {
 
             if (error) {
 
@@ -95,18 +73,6 @@ app.get('/weather', (req, res) => {
         });
 
     });
-
-});
-
-app.get('/help/*', (req, res) => {
-
-    res.render('404', {
-
-        title: '404 Error',
-        error: 'Help article cannot be found',
-        name: 'Geoffrey'
-
-    })
 
 });
 

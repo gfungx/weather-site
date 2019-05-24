@@ -1,9 +1,19 @@
 const request = require('request')
 
 const key = 'fe50282afdae8cd7c7d4a67617040ac7';
-const query = '?units=si'
+let query = '';
 
-const forecast = (longitude, latitude, callback) => {
+const forecast = (longitude, latitude, units, callback) => {
+
+    if (units === 'c') {
+
+        query = '?units=si';
+
+    } else if (units === 'f') {
+
+        query = ''
+
+    }
 
     const url = `https://api.darksky.net/forecast/${key}/${latitude},${longitude}${query}`;
 

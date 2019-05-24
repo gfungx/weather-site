@@ -16,29 +16,35 @@
 
     <body>
 
-        <div class="main-content">
+        {{>header}}
+        
+        <div class="main">
 
-            {{>header}}
-            
             <p>A site to serve all your weather needs!</p>
 
             <form class="form">
 
                 <input placeholder="Location">
 
+                <select id="units">
+
+                    <option value="c">°C</option>
+                    <option value="f">°F</option>
+
+                </select>
+
                 <button>Search</button>
 
             </form>
 
-            <p id="title"></p>
-            <p id="summary" class="main-weather"></p>
-            <p id="currently__temp" class="main-weather"></p>
-            <p id= "currently__precip" class="main-weather"></p>
+            <p id="title__main" class="location"></p>
+
+            <p id="summary"></p>
+            <p id="currently__temp"></p>
+            <p id= "currently__precip"></p>
+
 
         </div>
-
-
-        {{>footer}}
 
         <script src="/static/js/app.js"></script>
 
