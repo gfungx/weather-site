@@ -2,12 +2,25 @@ const DOMStrings = {
 
     weatherForm: document.querySelector('.form'),
     search: document.querySelector('input'),
-    title: document.getElementById('title__main'),
-    summary: document.getElementById('summary'),
+    location: document.getElementById('location'),
+    now: document.getElementById('now'),
+    currentlyBox: document.querySelector('.currently'),
+    currentlySummary: document.getElementById('currently__summary'),
     currentlyTemp: document.getElementById('currently__temp'),
     currentlyPrecip: document.getElementById('currently__precip'),
 
 };
+
+const clear = () => {
+
+    DOMStrings.search.value = '';
+    DOMStrings.location.textContent = '';
+    DOMStrings.now.classList.add('invisible');
+    DOMStrings.currentlyBox.classList.add('invisible')
+    DOMStrings.currentlySummary.textContent = '';
+    DOMStrings.currentlyTemp.textContent = '';
+
+}
 
 DOMStrings.weatherForm.addEventListener('submit', (e) => {
 
@@ -17,10 +30,7 @@ DOMStrings.weatherForm.addEventListener('submit', (e) => {
 
     const location = DOMStrings.search.value;
 
-    DOMStrings.title.textContent = 'Loading...';
-    DOMStrings.summary.textContent = '';
-    DOMStrings.currentlyTemp.textContent = '';
-    DOMStrings.currentlyPrecip.textContent = '';
+    clear();
 
     fetch(`/weather?address=${location}&units=${units}`).then((response) => {
 
@@ -28,16 +38,17 @@ DOMStrings.weatherForm.addEventListener('submit', (e) => {
 
             if (data.error) {
 
-                DOMStrings.title.textContent = data.error;
-                DOMStrings.title.classList.remove('location');
+                DOMStrings.currentlySummary.textContent = data.error;
+                DOMStrings.currentlySummary.classList.remove('location');
 
             } else {
 
-                DOMStrings.title.textContent = data.location;
-                DOMStrings.title.classList.add('location');
-                DOMStrings.summary.textContent = data.summary;
-                DOMStrings.currentlyTemp.textContent = `It is currently ${data.currentTemperature}°${units.toUpperCase()}`;
-                DOMStrings.currentlyPrecip.textContent = `There is a ${data.rainProb}% chance of rain`;
+                DOMStrings.now.classList.remove('invisible');
+                DOMStrings.currentlyBox.classList.remove('invisible');
+                DOMStrings.location.textContent = data.location;
+                DOMStrings.location.classList.add('location');
+                DOMStrings.currentlySummary.textContent = data.summary;
+                DOMStrings.currentlyTemp.textContent = `${data.currentTemperature}°${units.toUpperCase()}`;
 
             };
 

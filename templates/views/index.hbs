@@ -12,6 +12,8 @@
 
         <title>Weather</title>
 
+        
+
     </head>
 
     <body>
@@ -20,13 +22,11 @@
         
         <div class="main">
 
-            <p>A site to serve all your weather needs!</p>
-
             <form class="form">
 
-                <input placeholder="Location">
+                <div class="search"><input placeholder="Location"></div>
 
-                <select id="units">
+                <select id="units" class="dropdown">
 
                     <option value="c">°C</option>
                     <option value="f">°F</option>
@@ -37,11 +37,18 @@
 
             </form>
 
-            <p id="title__main" class="location"></p>
+            <div class="weather">
 
-            <p id="summary"></p>
-            <p id="currently__temp"></p>
-            <p id= "currently__precip"></p>
+                <div class="currently invisible">
+
+                    <p id="location"></p>
+                    <h4 id="now" class="invisible">Now</h4>
+                    <p id="currently__temp"></p>
+                    <p id="currently__summary"></p>
+                
+                </div>
+
+            </div>
 
 
         </div>

@@ -9,14 +9,10 @@ body {
 
 }
 
-#title {
+.invisible {
 
-    font-size: 12vmin;
-    font-family: 'IBM Plex Sans';
-    color: white;
-    padding-left: 10vw;
-    padding-top: 4vh;
-
+    visibility: hidden;
+    
 }
 
 header {
@@ -27,8 +23,20 @@ header {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 40vh;
+    height: 30vh;
     margin: 0;
+
+}
+
+#title {
+
+    position: absolute;
+    font-size: 12vmin;
+    font-family: 'IBM Plex Sans';
+    color: white;
+    padding-left: 10vw;
+    text-decoration: none;
+    padding-top: 7vh;
 
 }
 
@@ -36,38 +44,223 @@ header {
 
     position: absolute;
     display: block;
-    top: 45vh;
+    top: 35vh;
     padding-left: 10vw;
+
+}
+
+.form {
+
+    display: flex;
+
+}
+
+.search {
+
+    display: flex;
+    align-items: center;
+    width: 25vw;
+    margin: auto;
+    position: relative;
+    padding: 15px 0px;
+    padding-left: 10px;
+    padding-right: 100px;
+    color: #FFF;
+    background: white;
+    background-clip: padding-box;
+    border: solid 5px transparent;
+    border-radius: 1em;
+
+}
+.search:before {
+
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -5px;
+    border-radius: inherit;
+    background: linear-gradient(128deg, #1659ff 0%, #3fb8fb 100%);
 
 }
 
 input {
 
-    border: 1px solid #cccccc;
-    padding: 8px;
-    font-family: 'Montserrat'
+    border: none;
+    font-family: 'Montserrat';
+    font-size: 3vmin;
+    width: 22vw
 
 }
 
-#units {
+input:focus, .dropdown:focus, button:focus {
 
+    outline-width: 0;
+
+}
+
+.dropdown {
+
+    display: flex;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    padding: 20px 0px;
+    margin: 0px 10px;
+    border-radius: 1em;
+    font-size: 3vmin;
     border: 1px solid #cccccc;
     padding: 7.5px;
     font-family: 'Montserrat'
+
 
 }
 
 button {
 
+    display: flex;
     cursor: pointer;
-    border: 1px solid #888888;
-    background: #888888;
+    font-size: 3vmin;
+    background: linear-gradient(128deg, #1659ff 0%, #3fb8fb 100%);
     color: white;
-    padding: 8px;
+    padding: 8px 2vw;
     font-family: 'Montserrat';
+    border: none;
+    border-radius: 1em
 
 }
 
 .location {
-    color: #888888;
+
+    color: white;
+
+}
+
+.weather {
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.currently {
+
+    background: linear-gradient(128deg, #1659ff 0%, #3fb8fb 100%);
+    border-radius: 2em;
+    margin-top: 5vh;
+    padding: 20px;
+    width: 35vw;
+    height: 50vh;
+
+}
+
+#now {
+
+    color: white;
+    font-size: 5vmin;
+    margin-top: -2vh;
+
+}
+
+#currently__temp {
+
+    color: white;
+    font-size: 8vmin;
+    margin-top: -7vh;
+
+}
+
+#currently__summary {
+
+    color: white;
+    font-size: 3vmin;
+    margin-top: -8vh;
+
+}
+
+@media (max-width: 450px) {
+
+    body {
+
+        margin-right: 40vw;
+
+    }
+
+    #title {
+
+        font-size: 17.5vmin;
+        padding-top: 10vh;
+
+    }
+
+    .search, .dropdown, button {
+
+        margin-left: 0;
+        margin-right: 4vw;
+
+    }
+
+    .weather {
+
+        flex-direction: column;
+
+    }
+
+    .currently {
+
+        width: 80vw;
+
+    }
+
+    #now {
+
+        font-size: 10vmin;
+
+    }
+
+    #currently__temp {
+
+        font-size: 15vmin;
+
+    }
+
+    #currently__summary {
+
+        font-size: 5vmin;
+
+    }
+
+}
+
+@media (min-width: 1150px) {
+
+    .currently {
+
+        padding-left: 2vw;
+
+    }
+
+    #location {
+
+        font-size: 2.5vmin;
+
+    }
+
+    #now {
+
+        font-size: 8vmin;
+        padding-top: 2vh;
+
+    }
+
+    #currently__temp {
+
+        margin-top: -12vh;
+        font-family: 15vmin;
+
+    }
+
 }
