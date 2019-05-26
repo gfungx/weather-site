@@ -52,6 +52,8 @@ header {
 .form {
 
     display: flex;
+    flex-direction: row;
+    position: absolute;
 
 }
 
@@ -143,17 +145,21 @@ button {
 
     display: flex;
     flex-direction: row;
+    margin-top: 10vh;
 
 }
 
 .currently {
+
+    display: flex;
+    flex-direction: column;
 
     background: linear-gradient(128deg, #1659ff 0%, #3fb8fb 100%);
     border-radius: 2em;
     margin-top: 5vh;
     padding: 20px;
     width: 35vw;
-    height: 50vh;
+    height: 45vh;
 
 }
 
@@ -178,6 +184,42 @@ button {
     color: white;
     font-size: 3vmin;
     margin-top: -8vh;
+
+}
+
+.more-info {
+
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(128deg, #1659ff 0%, #3fb8fb 100%);
+    border-radius: 2em;
+    margin-top: 5vh;
+    margin-left: 2vw;
+    padding: 20px;
+    width: 30vw;
+    height: 45vh;
+
+}
+
+#info {
+    
+    color: white;
+    font-size: 2.5vmin;
+
+}
+
+#precip, #humidity {
+
+    color: white;
+    margin-top: -1.5vh;
+
+}
+
+#currently__precip, #currently__humidity {
+
+    color: white;
+    font-size: 8vmin;
+    margin: 0;
 
 }
 
@@ -211,7 +253,8 @@ button {
 
     .currently {
 
-        width: 80vw;
+        margin-left: 2vw;
+        width: 72.5vw;
 
     }
 
@@ -230,6 +273,32 @@ button {
     #currently__summary {
 
         font-size: 5vmin;
+
+    }
+
+    
+    .more-info {
+
+        width: 72.5vw;
+        height: 50vh;
+
+    }
+
+    #info {
+
+        font-size: 5vmin
+
+    }
+
+    #currently__precip, #currently__humidity {
+
+        font-size: 15vmin
+
+    }
+
+    #precip, #humidity {
+
+        padding-top: 2vh;
 
     }
 
@@ -260,6 +329,12 @@ button {
 
         margin-top: -12vh;
         font-family: 15vmin;
+
+    }
+
+    .more-info {
+
+        padding-left: 2vw;
 
     }
 

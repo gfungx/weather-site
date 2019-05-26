@@ -64,9 +64,10 @@ app.get('/weather', (req, res) => {
 
                 summary: forecastData.currently.summary,
                 currentTemperature: forecastData.currently.temperature,
-                rainProb: forecastData.currently.precipProbability,
+                precipProb: forecastData.currently.precipProbability,
                 location,
-                address: req.query.address
+                address: req.query.address,
+                humidity: forecastData.currently.humidity,
 
             });
 
